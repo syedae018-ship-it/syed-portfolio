@@ -2015,7 +2015,8 @@
     }
 
     .wc.w5 .wc-info {
-      min-height: 240px; /* 40px heavier to compensate for its shorter 220px thumbnail, perfectly matching w7's 260px thumb + 200px info */
+      min-height: 240px;
+      /* 40px heavier to compensate for its shorter 220px thumbnail, perfectly matching w7's 260px thumb + 200px info */
     }
 
     /* .wc wrapper — position:relative so hovered card can lift above siblings */
@@ -2076,7 +2077,7 @@
       border-radius: 20px 20px 0 0;
       flex-shrink: 0;
       transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: max-height;
+      /* removed will-change: max-height to fix Android rendering lag */
       /* fallback custom props until JS reads real video dimensions */
       --expanded-ratio: 177.78%;
       --expanded-maxh: 620px;
@@ -4878,7 +4879,8 @@
             class="bp-n">lostbutxain</span><span class="bp-c">Travel</span></div>
         <div class="bp" data-niche="Education"><span class="bp-i">&#x1F4DA;</span><span class="bp-n">Tech
             Erudition</span><span class="bp-c">Education</span></div>
-        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM Herbal</span><span class="bp-c">Skincare</span></div>
+        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM
+            Herbal</span><span class="bp-c">Skincare</span></div>
         <!-- Duplicates for seamless loop -->
         <div class="bp" data-niche="Fitness"><span class="bp-i">&#x1F4AA;</span><span
             class="bp-n">Findyoutfitonlins</span><span class="bp-c">Fitness</span></div>
@@ -4898,7 +4900,8 @@
             class="bp-n">lostbutxain</span><span class="bp-c">Travel</span></div>
         <div class="bp" data-niche="Education"><span class="bp-i">&#x1F4DA;</span><span class="bp-n">Tech
             Erudition</span><span class="bp-c">Education</span></div>
-        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM Herbal</span><span class="bp-c">Skincare</span></div>
+        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM
+            Herbal</span><span class="bp-c">Skincare</span></div>
       </div>
     </div>
 
@@ -4923,7 +4926,8 @@
             class="bp-n">lostbutxain</span><span class="bp-c">Travel</span></div>
         <div class="bp" data-niche="Education"><span class="bp-i">&#x1F4DA;</span><span class="bp-n">Tech
             Erudition</span><span class="bp-c">Education</span></div>
-        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM Herbal</span><span class="bp-c">Skincare</span></div>
+        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM
+            Herbal</span><span class="bp-c">Skincare</span></div>
         <!-- Duplicates for seamless loop -->
         <div class="bp" data-niche="Skincare"><span class="bp-i">&#x2728;</span><span class="bp-n">Aviora</span><span
             class="bp-c">Skincare</span></div>
@@ -4943,7 +4947,8 @@
             class="bp-n">lostbutxain</span><span class="bp-c">Travel</span></div>
         <div class="bp" data-niche="Education"><span class="bp-i">&#x1F4DA;</span><span class="bp-n">Tech
             Erudition</span><span class="bp-c">Education</span></div>
-        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM Herbal</span><span class="bp-c">Skincare</span></div>
+        <div class="bp" data-niche="Skincare"><span class="bp-i">&#x1F33F;</span><span class="bp-n">AM
+            Herbal</span><span class="bp-c">Skincare</span></div>
       </div>
     </div>
   </section>
@@ -5077,8 +5082,7 @@
             <div class="wc-thumb">
               <div class="wc-bg" style="background:linear-gradient(135deg,#000820,#001080,#000820)"></div>
               <!-- THUMBNAIL: Set src to your thumbnail image, e.g. thumb1.jpg -->
-              <img class="wc-thumb-img" src="p1.png" alt="Ilahi Creation thumbnail"
-                onerror="this.style.display='none'">
+              <img class="wc-thumb-img" src="p1.png" alt="Ilahi Creation thumbnail" onerror="this.style.display='none'">
               <!-- VIDEO: Replace card1.mp4 with your actual video filename -->
               <video class="wc-vid" src="card1.mp4" muted loop playsinline preload="none"></video>
               <div class="wc-emo">👗</div>
@@ -5131,8 +5135,7 @@
             <div class="wc-thumb">
               <div class="wc-bg" style="background:linear-gradient(135deg,#000318,#000d66,#000318)"></div>
               <!-- THUMBNAIL: Set src to your thumbnail image, e.g. thumb3.jpg -->
-              <img class="wc-thumb-img" src="p3.png" alt="Tech Erudition thumbnail"
-                onerror="this.style.display='none'">
+              <img class="wc-thumb-img" src="p3.png" alt="Tech Erudition thumbnail" onerror="this.style.display='none'">
               <!-- VIDEO: Replace card3.mp4 with your actual video filename -->
               <video class="wc-vid" src="card3.mp4" muted loop playsinline preload="none"></video>
               <div class="wc-emo">📚</div>
@@ -5185,8 +5188,7 @@
             <div class="wc-thumb">
               <div class="wc-bg" style="background:linear-gradient(135deg,#000418,#001270,#000418)"></div>
               <!-- THUMBNAIL: Set src to your thumbnail image, e.g. thumb5.jpg -->
-              <img class="wc-thumb-img" src="p5.png" alt="Atria Bootcamp thumbnail"
-                onerror="this.style.display='none'">
+              <img class="wc-thumb-img" src="p5.png" alt="Atria Bootcamp thumbnail" onerror="this.style.display='none'">
               <!-- VIDEO: Replace card5.mp4 with your actual video filename -->
               <video class="wc-vid" src="card5.mp4" muted loop playsinline preload="none"></video>
               <div class="wc-emo">🎓</div>
@@ -5928,11 +5930,38 @@
           if (vid.readyState >= 1) { onMeta(); } else { vid.preload = 'metadata'; vid.load(); }
 
           var timer;
+          var isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+          var isExpanding = false;
+
           card.addEventListener('mouseenter', function () {
-            timer = setTimeout(function () { vid.currentTime = 0; vid.play().catch(function () { }); }, 80);
+            isExpanding = true;
+            // Delay video play exactly long enough for the max-height CSS transition to finish on mobile.
+            // This splits the CPU load (Layout -> Video Decode) preventing "stuck" frames on Android.
+            var delayMs = (isTouchDevice || window.innerWidth <= 768) ? 500 : 80;
+            timer = setTimeout(function () {
+              isExpanding = false;
+              vid.currentTime = 0;
+              vid.play().catch(function () { });
+            }, delayMs);
           });
+
           card.addEventListener('mouseleave', function () {
+            isExpanding = false;
             clearTimeout(timer); vid.pause(); vid.currentTime = 0;
+          });
+
+          // Invisible tap-to-play / tap-to-stop for mobile
+          card.addEventListener('click', function (e) {
+            if (isTouchDevice || window.innerWidth <= 768) {
+              // Reject manual play calls while the card is actively expanding to prevent lag
+              if (isExpanding) return;
+              // If already expanded, tap to toggle works perfectly instantly
+              if (vid.paused) {
+                vid.play().catch(function () { });
+              } else {
+                vid.pause();
+              }
+            }
           });
         });
       }
