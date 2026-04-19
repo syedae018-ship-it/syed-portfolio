@@ -5950,30 +5950,32 @@
 
           var timer;
           var isTouchDevice = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-          var isExpanding = false;
 
+          // DESKTOP HOVER LOGIC
           card.addEventListener('mouseenter', function () {
-            isExpanding = true;
-            // Instantly start decoding (80ms to prevent double threading) 
-            // The heavy CSS scales have been disabled on mobile so Android can handle both simultaneously.
+            if (isTouchDevice || window.innerWidth <= 768) return; 
             timer = setTimeout(function () {
-              isExpanding = false;
               vid.currentTime = 0;
               vid.play().catch(function () { });
             }, 80);
           });
 
           card.addEventListener('mouseleave', function () {
-            isExpanding = false;
+            if (isTouchDevice || window.innerWidth <= 768) return;
             clearTimeout(timer); vid.pause(); vid.currentTime = 0;
           });
 
-          // Invisible tap-to-play / tap-to-stop for mobile
+          // MOBILE EXCLUSIVE: INVISIBLE TAP-TO-PLAY BUTTON LOGIC
           card.addEventListener('click', function (e) {
             if (isTouchDevice || window.innerWidth <= 768) {
-              // Reject manual play calls while the card is actively expanding to prevent lag
-              if (isExpanding) return;
-              // If already expanded, tap to toggle works perfectly instantly
+              // Pause any other playing videos to free up phone memory
+              document.querySelectorAll('.work-card .wc-vid').forEach(function(v) {
+                if (v !== vid && !v.paused) {
+                  v.pause();
+                }
+              });
+
+              // Toggle play/pause on tap
               if (vid.paused) {
                 vid.play().catch(function () { });
               } else {
