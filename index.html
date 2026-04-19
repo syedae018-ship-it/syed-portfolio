@@ -3120,6 +3120,25 @@
         grid-template-columns: 1fr
       }
 
+      /* AGGRESSIVE MOBILE PERFORMANCE OVERRIDES */
+      /* Disables heavy composite scaling layers on Android so the video decoder can run fluidly alongside the max-height expansion */
+      .work-card:hover {
+        transform: translateY(0) translateZ(0) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+      }
+      .work-card:hover .wc-bg {
+        transform: none !important;
+      }
+      .work-card:hover .wc-vid {
+        transform: none !important;
+      }
+      .work-card:hover .wc-emo {
+        transform: none !important;
+      }
+      .wc-vid {
+        will-change: auto !important; /* stops Android Webview pre-allocating heavy textures */
+      }
+
       .work-hdr {
         flex-direction: column;
         align-items: flex-start;
@@ -5935,14 +5954,13 @@
 
           card.addEventListener('mouseenter', function () {
             isExpanding = true;
-            // Delay video play exactly long enough for the max-height CSS transition to finish on mobile.
-            // This splits the CPU load (Layout -> Video Decode) preventing "stuck" frames on Android.
-            var delayMs = (isTouchDevice || window.innerWidth <= 768) ? 500 : 80;
+            // Instantly start decoding (80ms to prevent double threading) 
+            // The heavy CSS scales have been disabled on mobile so Android can handle both simultaneously.
             timer = setTimeout(function () {
               isExpanding = false;
               vid.currentTime = 0;
               vid.play().catch(function () { });
-            }, delayMs);
+            }, 80);
           });
 
           card.addEventListener('mouseleave', function () {
