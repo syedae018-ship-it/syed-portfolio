@@ -13,11 +13,11 @@
 
   <!-- ═══════════════════════════════════════════════════
      PAGE TITLE — shown in the browser tab & search results
-     Change "Syed Mustafa — Video Editor & AI Specialist"
+     Change "Syed Mustafa | Video Editor & AI Specialist"
      to your own name and profession.
      e.g. "John Doe — Graphic Designer & Photographer"
 ═══════════════════════════════════════════════════ -->
-  <title>Syed Mustafa — Video Editor & AI Specialist</title>
+  <title>Syed Mustafa | Video Editor & AI Specialist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- FONTS — Inter, Syne, and DM Mono are loaded from Google Fonts.
@@ -2370,65 +2370,125 @@
     .why-feats {
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: 16px;
+      perspective: 1200px;
     }
 
     .wf {
       display: flex;
-      gap: 15px;
+      gap: 18px;
       align-items: flex-start;
-      background: var(--w05);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 18px;
-      transition: border-color var(--dur-fast) var(--ease-smooth), transform var(--dur-fast) var(--ease-spring), background var(--dur-fast) var(--ease-smooth), box-shadow var(--dur-fast) var(--ease-smooth);
-      will-change: transform;
+      background: linear-gradient(145deg, #0a0d18, #05070D);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        inset 0 0 20px rgba(13, 51, 179, 0.05);
+      transform-style: preserve-3d;
+      transform: rotateX(3deg) rotateY(-8deg) translateZ(0);
+      will-change: transform, box-shadow, background;
+      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .wf:nth-child(1) { transform: rotateX(3deg) rotateY(-8deg) translateZ(0px) translateX(0px); }
+    .wf:nth-child(2) { transform: rotateX(3deg) rotateY(-8deg) translateZ(-15px) translateX(8px); }
+    .wf:nth-child(3) { transform: rotateX(3deg) rotateY(-8deg) translateZ(-30px) translateX(16px); }
+    .wf:nth-child(4) { transform: rotateX(3deg) rotateY(-8deg) translateZ(-45px) translateX(24px); }
+
+    @media (max-width: 1024px) {
+      .wf, .wf:nth-child(1), .wf:nth-child(2), .wf:nth-child(3), .wf:nth-child(4) {
+        transform: none;
+      }
+    }
+
+    .wf::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -150%; width: 50%; height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.04), transparent);
+      transform: skewX(-25deg);
+      transition: none;
+      pointer-events: none;
+    }
+
+    .wf:hover::before {
+      left: 200%;
+      transition: left 0.7s ease;
     }
 
     .wf:hover {
-      border-color: var(--lborder2);
-      transform: translateX(8px) translateZ(0);
-      background: var(--lsoft);
-      box-shadow: var(--shadow-1);
+      border-color: rgba(13, 51, 179, 0.5);
+      transform: rotateX(0deg) rotateY(0deg) translateZ(20px) scale(1.03);
+      background: linear-gradient(145deg, #0d1222, #070a14);
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(13, 51, 179, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      z-index: 10;
+    }
+
+    @media (max-width: 1024px) {
+      .wf:hover {
+        transform: scale(1.02);
+      }
     }
 
     .wf:active {
-      transform: translateX(4px) scale(0.99) translateZ(0);
+      transform: rotateX(0deg) rotateY(0deg) translateZ(10px) scale(1.01);
     }
 
     .wf-ico {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      background: var(--lsoft);
-      border: 1px solid var(--lborder);
-      border-radius: 11px;
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: rgba(13, 51, 179, 0.12);
+      border: 1px solid rgba(13, 51, 179, 0.25);
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 19px;
-      transition: background var(--dur-fast) var(--ease-smooth), border-color var(--dur-fast) var(--ease-smooth), box-shadow var(--dur-fast) var(--ease-smooth), transform var(--dur-fast) var(--ease-spring);
+      font-size: 20px;
+      color: #fff;
+      transition: all 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      transform: translateZ(10px);
     }
 
     .wf:hover .wf-ico {
-      background: rgba(13, 51, 179, 0.22);
-      border-color: var(--lav2);
-      box-shadow: 0 0 18px var(--lglow);
-      transform: scale(1.1) rotate(-5deg);
+      background: rgba(13, 51, 179, 0.35);
+      border-color: rgba(13, 51, 179, 0.7);
+      box-shadow: 0 0 25px rgba(13, 51, 179, 0.5);
+      transform: translateZ(35px) scale(1.1);
     }
 
     .wf-title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
-      color: var(--w);
-      margin-bottom: 3px;
+      color: #fff;
+      margin-bottom: 4px;
       letter-spacing: -0.2px;
+      transform: translateZ(5px);
+      transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .wf:hover .wf-title {
+      transform: translateZ(20px);
     }
 
     .wf-desc {
-      font-size: 13px;
-      color: var(--w40);
-      line-height: 1.65;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.6;
+      transform: translateZ(0px);
+      transition: transform 400ms cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .wf:hover .wf-desc {
+      transform: translateZ(15px);
     }
 
     /* ═══ PROCESS ═══ */
@@ -2739,7 +2799,287 @@
       flex-wrap: wrap;
     }
 
+    /* ═══ ABOUT SPRING CHARACTER ═══ */
+    #about {
+      position: relative;
+      overflow: visible;
+    }
+
+    #ab-line-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+      overflow: visible;
+      background: transparent;
+      /* Screen blend removes any residual rectangular tint */
+      mix-blend-mode: screen;
+      /* Outer halo delivered via CSS only — avoids SVG filter region bleed */
+      filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.45)) drop-shadow(0 0 4px rgba(99, 160, 255, 0.6));
+    }
+
+    .ab-char-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(13, 51, 179, 0.10), rgba(8, 8, 24, 0.95));
+      border: 1px solid rgba(65, 105, 225, 0.22);
+      border-radius: 24px;
+      overflow: visible;
+      aspect-ratio: 3/4;
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      box-shadow: 0 0 60px rgba(13, 51, 179, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .ab-char-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(65, 105, 225, 0.7), transparent);
+      border-radius: 2px;
+    }
+
+    .ab-grab-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(13, 51, 179, 0.15);
+      border: 1px solid rgba(65, 105, 225, 0.3);
+      border-radius: 50%;
+      color: rgba(65, 105, 225, 0.9);
+      pointer-events: none;
+      z-index: 10;
+      animation: abBadgePulse 2.8s ease-in-out infinite;
+    }
+
+    @keyframes abBadgePulse {
+
+      0%,
+      100% {
+        opacity: .7;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+    }
+
+    .ab-char-card.dragging .ab-grab-badge {
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .ab-drag-label {
+      position: absolute;
+      top: 22%;
+      right: 25%;
+      font-size: 18px;
+      font-weight: 600;
+      color: rgba(65, 105, 225, 0.9);
+      font-family: 'Caveat', 'Comic Sans MS', cursive;
+      pointer-events: none;
+      z-index: 12;
+      animation: abLabelFloat 2.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .ab-drag-label::after {
+      content: '↓';
+      position: absolute;
+      bottom: -18px;
+      left: 10px;
+      font-size: 16px;
+      transform: rotate(30deg);
+      color: rgba(65, 105, 225, 0.9);
+    }
+
+    @keyframes abLabelFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-2deg);
+        opacity: .7;
+      }
+
+      50% {
+        transform: translateY(-5px) rotate(1deg);
+        opacity: 1;
+      }
+    }
+
+    .ab-char-card.dragging .ab-drag-label {
+      opacity: 0;
+      transition: opacity .15s;
+    }
+
+    .ab-char-glow {
+      position: absolute;
+      bottom: 12%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 30%;
+      background: radial-gradient(ellipse, rgba(13, 51, 179, 0.35) 0%, transparent 70%);
+      filter: blur(24px);
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform, opacity;
+    }
+
+    .ab-char-wrap {
+      position: absolute;
+      bottom: 14%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 68%;
+      aspect-ratio: 240/380;
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+      z-index: 5;
+      will-change: transform;
+    }
+
+    .ab-char-wrap:active {
+      cursor: grabbing;
+    }
+
+    .ab-char-inner {
+      width: 100%;
+      height: 100%;
+      animation: abCharFloat 3.8s ease-in-out infinite;
+      will-change: transform;
+      transform-origin: center bottom;
+    }
+
+    @keyframes abCharFloat {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg) scaleX(1);
+      }
+
+      30% {
+        transform: translateY(-12px) rotate(1.5deg) scaleX(0.99);
+      }
+
+      70% {
+        transform: translateY(-6px) rotate(-1deg) scaleX(1.01);
+      }
+    }
+
+    .ab-char-inner.dragging {
+      animation: none;
+      cursor: grabbing;
+    }
+
+    .ab-shadow {
+      position: absolute;
+      bottom: 9%;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0.55) scaleY(0.4);
+      width: 60%;
+      height: 18px;
+      background: radial-gradient(ellipse, rgba(13, 51, 179, 0.6) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(6px);
+      pointer-events: none;
+      z-index: 1;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .ab-char-card.dragging .ab-shadow {
+      transform: translateX(-50%) scaleX(0.9) scaleY(0.25);
+      opacity: 0.3;
+    }
+
+    .ab-stats {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      width: 100%;
+      padding: 16px 20px;
+      background: rgba(0, 0, 0, 0.25);
+      border-top: 1px solid rgba(65, 105, 225, 0.15);
+      border-radius: 0 0 24px 24px;
+      position: relative;
+      z-index: 6;
+    }
+
+    .ab-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .ab-stat-n {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff, #4169e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .ab-stat-l {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      font-weight: 500;
+    }
+
+    .ab-stat-div {
+      width: 1px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (max-width:768px) {
+      #ab-line-svg {
+        display: none;
+      }
+
+      .ab-grab-badge {
+        display: none;
+      }
+
+      .ab-drag-label {
+        display: none;
+      }
+
+      .ab-char-wrap {
+        cursor: default;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+
+      .ab-char-card {
+        aspect-ratio: 4/5;
+      }
+    }
+
     /* ═══ CONTACT ═══ */
+
     #contact {
       background: var(--bg);
       position: relative;
@@ -3640,7 +3980,7 @@
     }
 
     .cb-locked-badge::before {
-      content: '✓';
+      content: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 6L9 17l-5-5"></path></svg>';
       color: var(--cb-success);
       font-size: 9px;
     }
@@ -4777,28 +5117,57 @@
     <div class="ae-el ae-circle" style="top:50%;right:4%"></div>
     <div class="ae-el ae-circle" style="bottom:45%;left:4%;animation-delay:1s"></div>
     <div class="fc fc1">
-      <div class="fc-ico">🎬</div>
+      <div class="fc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="display:inline-block; vertical-align:middle;">
+          <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+          <line x1="7" y1="2" x2="7" y2="22"></line>
+          <line x1="17" y1="2" x2="17" y2="22"></line>
+          <line x1="2" y1="12" x2="22" y2="12"></line>
+          <line x1="2" y1="7" x2="7" y2="7"></line>
+          <line x1="2" y1="17" x2="7" y2="17"></line>
+          <line x1="17" y1="17" x2="22" y2="17"></line>
+          <line x1="17" y1="7" x2="22" y2="7"></line>
+        </svg></div>
       <div class="fc-t">Video Editing<small>Reels & Ads</small></div>
     </div>
     <div class="fc fc2">
-      <div class="fc-ico">🤖</div>
+      <div class="fc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="display:inline-block; vertical-align:middle;">
+          <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+          <circle cx="12" cy="5" r="2"></circle>
+          <path d="M12 7v4"></path>
+          <line x1="8" y1="16" x2="8" y2="16"></line>
+          <line x1="16" y1="16" x2="16" y2="16"></line>
+        </svg></div>
       <div class="fc-t">AI Specialist<small><a href="https://www.groitup.com" target="_blank" rel="noopener"
             style="color:inherit;text-decoration:none;">@ Groitup</a></small></div>
     </div>
     <div class="fc fc3">
-      <div class="fc-ico">⚡</div>
-      <div class="fc-t">10+ Brands<small>Worked With</small></div>
+      <div class="fc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="display:inline-block; vertical-align:middle;">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+        </svg></div>
+      <div class="fc-t">10+ Brands<small>Partnered With</small></div>
     </div>
     <div class="fc fc4">
-      <div class="fc-ico">🔥</div>
-      <div class="fc-t">Viral Content<small>Strategy</small></div>
+      <div class="fc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="display:inline-block; vertical-align:middle;">
+          <path
+            d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z">
+          </path>
+        </svg></div>
+      <div class="fc-t">Viral Content<small>Creation</small></div>
     </div>
     <div class="hero-3d-container" id="hero3dContainer">
       <div class="hero-in">
         <!-- HERO BADGE: The small pill at the top of the hero.
            Change "NEW" and the text after it. -->
         <div class="h-badge">
-          <div class="h-badge-dot"></div><span>NEW</span> AI-Powered Video Editing — Now Available
+          <div class="h-badge-dot"></div><span>NEW</span> Video Editing Powered by AI Is Now Available
         </div>
 
         <!-- HERO HEADLINE: 3 lines of large text.
@@ -4807,18 +5176,16 @@
            ht-outline = outline/stroke text
            Change the text inside each <span> freely. -->
         <h1 class="h-title">
-          <span class="ht-row"><span class="ht-word ht-solid">I Help Brands</span></span>
-          <span class="ht-row"><span class="ht-word ht-grad">Go Viral</span></span>
-          <span class="ht-row"><span class="ht-word ht-outline">With Content</span></span>
+          <span class="ht-row"><span class="ht-word ht-solid">I Build Brands</span></span>
+          <span class="ht-row"><span class="ht-word ht-grad">Through Viral</span></span>
+          <span class="ht-row"><span class="ht-word ht-outline">Content</span></span>
         </h1>
 
         <!-- HERO SUB-TEXT: The paragraph below the headline.
            Change your role, company name, and description here.
            Wrap important words in <strong> for bold styling. -->
-        <p class="h-sub">Video Editor & AI Specialist at <strong><a href="https://www.groitup.com" target="_blank"
-              rel="noopener" style="color:inherit;text-decoration:none;">Groitup</a></strong> — creating scroll-stopping
-          ads, reels
-          & AI-powered visuals that drive real results.</p>
+        <p class="h-sub">Video Editor and AI Specialist at <strong><a href="https://www.groitup.com" target="_blank"
+              rel="noopener" style="color:inherit;text-decoration:none;">Groitup</a></strong>. I create ads that make people stop scrolling, engaging reels, and visuals powered by AI that drive real results.</p>
 
         <!-- HERO BUTTONS: Primary (solid) and secondary (ghost) buttons.
            Change button labels and href links as needed. -->
@@ -4844,7 +5211,7 @@
           </div>
           <div class="hs">
             <div class="hs-n" style="color:var(--lav2)">AI</div>
-            <div class="hs-l">Powered</div>
+            <div class="hs-l">Driven</div>
           </div>
           <div class="hs">
             <div class="hs-n"><span id="c3">0</span>%</div>
@@ -4878,7 +5245,7 @@
     <!-- SECTION HEADING -->
     <div class="br-hdr">
       <div class="br-eyebrow">Trusted Partners</div>
-      <p class="br-lbl">Brands I&#39;ve Worked With</p>
+      <p class="br-lbl">Brands I Have Worked With</p>
       <p class="br-sublbl">10+ brands &middot; 7+ niches &middot; Real results</p>
     </div>
 
@@ -5007,19 +5374,28 @@
           <div class="stag">What I Do</div>
           <h2 class="stitle">Services That<br><em>Drive Results</em></h2>
         </div>
-        <p class="sbody rv d2" style="max-width:400px">High-performance content combining creative editing with
-          cutting-edge AI. Built for brands that want to stand out.</p>
+        <p class="sbody rv d2" style="max-width:400px">Content that performs exceptionally well by combining creative editing with the latest AI. Built for brands that want to stand out.</p>
       </div>
       <div class="svc-grid">
         <!-- SERVICE CARD 1: Edit icon, title, description, and bullet list -->
         <div class="svc-card rv d1 tilt3d ripple-host">
           <div class="sc-num">01</div>
-          <div class="sc-ico">🎬</div>
+          <div class="sc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+              <line x1="7" y1="2" x2="7" y2="22"></line>
+              <line x1="17" y1="2" x2="17" y2="22"></line>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <line x1="2" y1="7" x2="7" y2="7"></line>
+              <line x1="2" y1="17" x2="7" y2="17"></line>
+              <line x1="17" y1="17" x2="22" y2="17"></line>
+              <line x1="17" y1="7" x2="22" y2="7"></line>
+            </svg></div>
           <h3 class="sc-title">Video Editing</h3>
-          <p class="sc-desc">Scroll-stopping edits that capture attention in seconds. Optimised for the algorithm and
-            built to convert.</p>
+          <p class="sc-desc">Edits that make people stop scrolling and capture their attention in seconds. Optimized for algorithms and built to convert viewers into customers.</p>
           <ul class="sc-list">
-            <li>Reels & Short-Form</li>
+            <li>Reels & Short Form</li>
             <li>YouTube Videos</li>
             <li>Ad Creatives</li>
             <li>Brand Films</li>
@@ -5028,24 +5404,38 @@
         <!-- SERVICE CARD 2 -->
         <div class="svc-card rv d2 tilt3d ripple-host">
           <div class="sc-num">02</div>
-          <div class="sc-ico">🤖</div>
-          <h3 class="sc-title">AI Content Creation</h3>
-          <p class="sc-desc">Next-gen AI visuals and product ads that give your brand a futuristic, premium edge over
-            competition.</p>
+          <div class="sc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+              <circle cx="12" cy="5" r="2"></circle>
+              <path d="M12 7v4"></path>
+              <line x1="8" y1="16" x2="8" y2="16"></line>
+              <line x1="16" y1="16" x2="16" y2="16"></line>
+            </svg></div>
+          <h3 class="sc-title">Content Creation with AI</h3>
+          <p class="sc-desc">Visuals and product ads made using AI that give your brand a premium and futuristic edge over the competition.</p>
           <ul class="sc-list">
-            <li>AI Product Ads</li>
+            <li>Product Ads with AI</li>
             <li>Visual Transformations</li>
             <li>Creative Concepts</li>
-            <li>AI Brand Visuals</li>
+            <li>Brand Visuals</li>
           </ul>
         </div>
         <!-- SERVICE CARD 3 -->
         <div class="svc-card rv d3 tilt3d ripple-host">
           <div class="sc-num">03</div>
-          <div class="sc-ico">🎨</div>
+          <div class="sc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <circle cx="13.5" cy="5.5" r="1.5"></circle>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <circle cx="8.5" cy="15.5" r="1.5"></circle>
+              <circle cx="13.5" cy="18.5" r="1.5"></circle>
+              <path d="M21 12A9 9 0 1 1 3 12a9 9 0 0 1 18 0Z"></path>
+            </svg></div>
           <h3 class="sc-title">Creative Direction</h3>
-          <p class="sc-desc">Full creative strategy from concept to delivery — every piece of content tells your brand
-            story powerfully.</p>
+          <p class="sc-desc">Full creative strategy from the initial concept to the final delivery. Every piece of content tells the story of your brand powerfully.</p>
           <ul class="sc-list">
             <li>Brand Storytelling</li>
             <li>Ad Concepts</li>
@@ -5083,7 +5473,7 @@
       <div class="as-btn">▶</div>
       <div class="as-btn">⏸</div>
       <!-- SCRUBBER LABEL: Change "Syed Mustafa" to your name -->
-      <span class="as-lbl">Portfolio — Syed Mustafa</span>
+      <span class="as-lbl">Portfolio | Syed Mustafa</span>
       <div class="as-track">
         <div class="as-fill" id="asFill"></div>
         <div class="as-ph" id="asPh"></div>
@@ -5096,7 +5486,7 @@
           <div class="stag">Portfolio</div>
           <h2 class="stitle">Featured <em>Work</em></h2>
         </div>
-        <a href="#contact" class="va">All Projects →</a>
+        <a href="#contact" class="va">View All Projects →</a>
       </div>
       <div id="arc-carousel-root"
         style="width: 100%; min-height: 500px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
@@ -5122,16 +5512,15 @@
         <div>
           <!-- WHY ME HEADING & INTRO PARAGRAPH -->
           <div class="stag rv">Why Choose Me</div>
-          <h2 class="stitle rv d1">Built For<br><em>Real Results</em></h2>
-          <p class="sbody rv d2">I don't just edit videos — I craft experiences that make people stop, watch, and take
-            action. Every frame is intentional.</p>
+          <h2 class="stitle rv d1">Built for<br><em>Real Results</em></h2>
+          <p class="sbody rv d2">I do not just edit videos. I craft experiences that make people stop, watch, and take action. Every single frame is intentional.</p>
           <!-- STATS PANEL: Change sp-title, sp-sub, and each stat value/label -->
           <div class="sp rv d3">
             <div class="sp-hdr">
               <div class="sp-rec"></div>
               <div>
-                <div class="sp-title">By The Numbers</div>
-                <div class="sp-sub">Proven across industries</div>
+                <div class="sp-title">By the Numbers</div>
+                <div class="sp-sub">Proven across multiple industries</div>
               </div>
             </div>
             <div class="sp-stats">
@@ -5146,7 +5535,7 @@
               </div>
               <div class="sp-stat">
                 <div class="sp-n" style="font-size:clamp(20px,3vw,30px)">AI</div>
-                <div class="sp-l">Powered</div>
+                <div class="sp-l">Driven</div>
               </div>
               <div class="sp-stat">
                 <div class="sp-n">100%</div>
@@ -5159,38 +5548,57 @@
         <div class="why-feats">
           <!-- FEATURE 1: Change emoji, title, and description -->
           <div class="wf rv d1">
-            <div class="wf-ico">🎯</div>
+            <div class="wf-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg></div>
             <div>
-              <div class="wf-title">Multi-Niche Experience</div>
-              <div class="wf-desc">10+ brands across fitness, fashion, skincare, perfume and energy drinks. I adapt to
-                every brand's voice perfectly.</div>
+              <div class="wf-title">Experience Across Niches</div>
+              <div class="wf-desc">I have worked with over ten brands across fitness, fashion, skincare, perfume, and energy drinks. I adapt perfectly to the voice of every brand.</div>
             </div>
           </div>
           <!-- FEATURE 2 -->
           <div class="wf rv d2">
-            <div class="wf-ico">🤖</div>
+            <div class="wf-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                <circle cx="12" cy="5" r="2"></circle>
+                <path d="M12 7v4"></path>
+                <line x1="8" y1="16" x2="8" y2="16"></line>
+                <line x1="16" y1="16" x2="16" y2="16"></line>
+              </svg></div>
             <div>
-              <div class="wf-title">AI-Powered Editing</div>
-              <div class="wf-desc">Modern AI tools combined with traditional editing skills — giving your content a
-                competitive edge in the algorithm.</div>
+              <div class="wf-title">Editing Powered by AI</div>
+              <div class="wf-desc">Modern AI tools combined with traditional editing skills give your content a strong competitive edge in the algorithm.</div>
             </div>
           </div>
           <!-- FEATURE 3 -->
           <div class="wf rv d3">
-            <div class="wf-ico">📈</div>
+            <div class="wf-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg></div>
             <div>
               <div class="wf-title">Conversion Focused</div>
-              <div class="wf-desc">Every edit is built to drive engagement, clicks and conversions — not just views.
-                Results are the priority.</div>
+              <div class="wf-desc">Every edit is built to drive engagement, clicks, and conversions instead of just views. Getting results is the main priority.</div>
             </div>
           </div>
           <!-- FEATURE 4 -->
           <div class="wf rv d4">
-            <div class="wf-ico">⚡</div>
+            <div class="wf-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg></div>
             <div>
-              <div class="wf-title">Fast & Professional</div>
-              <div class="wf-desc">Quick turnaround without compromising quality. Clean communication and reliable
-                delivery every time.</div>
+              <div class="wf-title">Fast and Professional</div>
+              <div class="wf-desc">Quick turnaround without ever compromising on quality. You can expect clean communication and reliable delivery every single time.</div>
             </div>
           </div>
         </div>
@@ -5221,37 +5629,63 @@
       <div class="proc-hdr">
         <!-- PROCESS HEADING: Change all three lines below -->
         <div class="stag rv" style="justify-content:center">How It Works</div>
-        <h2 class="stitle rv d1" style="text-align:center">Simple <em>4-Step</em> Process</h2>
-        <p class="sbody rv d2">From brief to final delivery — clean, smooth every time</p>
+        <h2 class="stitle rv d1" style="text-align:center">A Simple Process in <em>Four Steps</em></h2>
+        <p class="sbody rv d2">From the initial brief to the final delivery, the process is clean and smooth every time.</p>
       </div>
       <div class="proc-grid rv d2">
         <!-- STEP 1: Change emoji, title, and description -->
         <div class="ps">
-          <div class="ps-num">01</div><span class="ps-ico">🎯</span>
-          <h3 class="ps-title">Understanding Brand</h3>
-          <p class="ps-desc">Deep dive into your brand identity, audience, goals and vision to build the right creative
-            foundation.</p>
+          <div class="ps-num">01</div><span class="ps-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg></span>
+          <h3 class="ps-title">Understanding Your Brand</h3>
+          <p class="ps-desc">We take a deep dive into your brand identity, audience, goals, and vision to build the right creative foundation.</p>
         </div>
         <!-- STEP 2 -->
         <div class="ps">
-          <div class="ps-num">02</div><span class="ps-ico">💡</span>
-          <h3 class="ps-title">Concept & Idea</h3>
-          <p class="ps-desc">Developing scroll-stopping creative concepts and storyboards tailored to your brand and
-            platform.</p>
+          <div class="ps-num">02</div><span class="ps-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <path
+                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.9 1.2 1.5 1.5 2.5">
+              </path>
+              <path d="M9 18h6"></path>
+              <path d="M10 22h4"></path>
+            </svg></span>
+          <h3 class="ps-title">Concept and Ideas</h3>
+          <p class="ps-desc">Developing highly engaging creative concepts and storyboards tailored specifically to your brand and preferred platform.</p>
         </div>
         <!-- STEP 3 -->
         <div class="ps">
-          <div class="ps-num">03</div><span class="ps-ico">⚙️</span>
-          <h3 class="ps-title">Editing & AI</h3>
-          <p class="ps-desc">Bringing the concept to life with precision editing, AI tools, effects, music and colour
-            grading.</p>
+          <div class="ps-num">03</div><span class="ps-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+              </path>
+            </svg></span>
+          <h3 class="ps-title">Editing and AI</h3>
+          <p class="ps-desc">Bringing the concept to life with precision editing, AI tools, effects, music, and colour grading.</p>
         </div>
         <!-- STEP 4 -->
         <div class="ps">
-          <div class="ps-num">04</div><span class="ps-ico">🚀</span>
+          <div class="ps-num">04</div><span class="ps-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              style="display:inline-block; vertical-align:middle;">
+              <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+              </path>
+              <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+              </path>
+              <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5-4 5-4v5"></path>
+              <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 4-5 4-5h-5"></path>
+            </svg></span>
           <h3 class="ps-title">Final Delivery</h3>
-          <p class="ps-desc">Clean delivery in your preferred format with revisions included — ready to publish and go
-            viral.</p>
+          <p class="ps-desc">Clean delivery in your preferred format with revisions included, ready for you to publish and go viral.</p>
         </div>
       </div>
     </div>
@@ -5274,7 +5708,7 @@
      - abtns     = the action buttons (Work With Me, See My Work)
 ═══════════════════════════════════════════════════ -->
   <section id="about" class="sec">
-    <!-- Decorative film strip at bottom — purely visual, no need to change -->
+    <!-- Decorative film strip at bottom — purely visual -->
     <div class="film" aria-hidden="true">
       <div class="ff"></div>
       <div class="ff"></div>
@@ -5297,70 +5731,145 @@
       <div class="ff"></div>
       <div class="ff"></div>
     </div>
+
+    <!-- Elastic SVG coil-spring line (drawn by JS, covers whole section) -->
+    <svg id="ab-line-svg" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <!-- Neon blue gradient along the spring path -->
+        <linearGradient id="abLineGrad" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="rgba(59,130,246,0.0)" />
+          <stop offset="20%" stop-color="rgba(99,160,255,0.95)" />
+          <stop offset="55%" stop-color="rgba(59,130,246,1.0)" />
+          <stop offset="85%" stop-color="rgba(37,99,235,0.95)" />
+          <stop offset="100%" stop-color="rgba(37,99,235,0.0)" />
+        </linearGradient>
+
+        <!--
+          FIXED GLOW FILTER
+          Each filter clips its output to SourceAlpha (the actual stroke pixels)
+          using feComposite operator="in".  This prevents the Gaussian blur from
+          painting outside the path bounds and creating the blue rectangle ghost.
+        -->
+
+        <!-- Soft outer bloom — clipped to path shape -->
+        <filter id="abFxBloom" x="-40%" y="-150%" width="180%" height="400%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <!-- clip blur to the original stroke alpha -->
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="clipped" />
+          <feMerge>
+            <feMergeNode in="clipped" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        <!-- Tight inner glow — clipped to path shape -->
+        <filter id="abFxInner" x="-20%" y="-80%" width="140%" height="260%">
+          <feGaussianBlur stdDeviation="1.5" result="blur" />
+          <feComposite in="blur" in2="SourceAlpha" operator="in" result="clipped" />
+          <feMerge>
+            <feMergeNode in="clipped" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        <!-- Anchor dot radial gradient -->
+        <radialGradient id="abDotGrd" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#c0daff" />
+          <stop offset="55%" stop-color="#3b82f6" />
+          <stop offset="100%" stop-color="rgba(37,99,235,0)" />
+        </radialGradient>
+      </defs>
+
+      <!-- Layer 1: wide soft bloom (clipped to stroke) -->
+      <path id="ab-spring-halo" fill="none" stroke="rgba(59,130,246,0.35)" stroke-width="14" stroke-linecap="round"
+        filter="url(#abFxBloom)" />
+
+      <!-- Layer 2: mid bloom -->
+      <path id="ab-spring-core" fill="none" stroke="rgba(99,160,255,0.6)" stroke-width="6" stroke-linecap="round"
+        filter="url(#abFxBloom)" />
+
+      <!-- Layer 3: main coil line -->
+      <path id="ab-line-path" fill="none" stroke="url(#abLineGrad)" stroke-width="3" stroke-linecap="round"
+        stroke-linejoin="round" filter="url(#abFxInner)" />
+
+      <!-- Layer 4: white-hot centre (no filter — avoids all bleed) -->
+      <path id="ab-spring-bright" fill="none" stroke="rgba(210,230,255,0.9)" stroke-width="1" stroke-linecap="round" />
+
+      <!-- End dots -->
+      <circle id="ab-dot-char" r="12" fill="url(#abDotGrd)" opacity="0" filter="url(#abFxBloom)" />
+      <circle id="ab-dot-char-core" r="5" fill="#ffffff" opacity="0" filter="url(#abFxInner)" />
+      <circle id="ab-dot-text" r="4" fill="rgba(99,160,255,0.85)" opacity="0" filter="url(#abFxInner)" />
+    </svg>
+
     <div class="wrap">
       <div class="about-grid">
-        <!-- PROFILE CARD (left side) -->
+
+        <!-- LEFT: Spring Character Card -->
         <div class="rvl">
-          <div class="pcard">
-            <div class="pc-top">
-              <!-- AVATAR: Change 🎬 to any emoji, or replace with an <img> tag -->
-              <div class="pc-av">🎬</div>
-              <!-- NAME & ROLE: Change to your name and job title -->
-              <div class="pc-name">Syed Mustafa</div>
-              <div class="pc-role">Video Editor & AI Specialist @ <a href="https://www.groitup.com" target="_blank"
-                  rel="noopener" style="color:inherit;text-decoration:none;">Groitup</a></div>
-              <!-- BRAND TAGS: Add or remove <span class="pct"> for each brand -->
-              <!-- comment ye -->
-              <!-- <div class="pc-tags">
-                <span class="pct">Findyoutfitonlins</span><span class="pct">Ilahi Creation</span>
-                <span class="pct">Surat Khazana</span><span class="pct">Crank</span>
-                <span class="pct">Aviora</span><span class="pct">Pure & Herbs</span>
-                <span class="pct">Shaik Sab</span>
+          <div class="ab-char-card" id="abCharCard">
+            <!-- grab hint badge top-right -->
+            <div class="ab-grab-badge" id="abGrabBadge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 11V6a2 2 0 0 0-4 0v5" />
+                <path d="M14 10V4a2 2 0 0 0-4 0v6" />
+                <path d="M10 10.5V6a2 2 0 0 0-4 0v8" />
+                <path
+                  d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L8 15" />
+              </svg>
+            </div>
+
+            <!-- drag hint label on char -->
+            <div class="ab-drag-label" id="abDragLabel">Drag Me!</div>
+
+            <!-- Glow base below character -->
+            <div class="ab-char-glow" id="abCharGlow"></div>
+
+            <!-- The draggable character -->
+            <div class="ab-char-wrap" id="abCharWrap">
+              <div class="ab-char-inner" id="abCharInner">
+                <!-- Inline SVG 3D character — hoodie creator, inspired by the reference -->
+                <!-- The 3D character PNG -->
+                <img src="character.png" alt="3D Character"
+                  style="width:100%; height:100%; object-fit:contain; pointer-events:none; display:block;" />
+              </div><!-- /ab-char-inner -->
+            </div><!-- /ab-char-wrap -->
+
+            <!-- shadow ellipse under char -->
+            <div class="ab-shadow" id="abShadow"></div>
+
+            <!-- stat strip at bottom of card -->
+            <div class="ab-stats">
+              <div class="ab-stat">
+                <span class="ab-stat-n">10+</span>
+                <span class="ab-stat-l">Brands</span>
               </div>
-            </div> -->
-              <!-- BOTTOM STATS: Change numbers and labels -->
-              <div class="pc-bot">
-                <div class="pc-stat">
-                  <div class="pc-sn">10+</div>
-                  <div class="pc-sl">Brands</div>
-                </div>
-                <div class="pc-stat">
-                  <div class="pc-sn">7+</div>
-                  <div class="pc-sl">Niches</div>
-                </div>
+              <div class="ab-stat-div"></div>
+              <div class="ab-stat">
+                <span class="ab-stat-n">7+</span>
+                <span class="ab-stat-l">Niches</span>
               </div>
             </div>
-          </div>
-        </div>
-        <!-- BIO TEXT (right side) — column 2 of about-grid -->
+          </div><!-- /ab-char-card -->
+        </div><!-- /rvl -->
+
+        <!-- RIGHT: Bio text (unchanged, added id to h2 for spring line anchor) -->
         <div class="rvr">
-          <!-- ABOUT HEADING: Change the tag, title, and your bio paragraph -->
           <div class="stag">About Me</div>
-          <h2 class="stitle d1">The Person<br><em>B The Edits</em></h2>
-          <p class="sbody d2" style="margin-bottom:22px">I'm a Video Editor & AI Specialist at <a
+          <h2 class="stitle d1" id="abHeadline">The Person<br><em>Behind the Edits</em></h2>
+          <p class="sbody d2" style="margin-bottom:22px">I am a Video Editor and AI Specialist at <a
               href="https://www.groitup.com" target="_blank" rel="noopener"
-              style="color:inherit;text-decoration:none;">Groitup</a>, passionate about
-            creating content that doesn't just look good — but actually performs. I combine creative storytelling with
-            data-driven editing techniques to produce content that grabs attention and converts viewers into
-            customers.
+              style="color:inherit;text-decoration:none;">Groitup</a>. I am passionate about creating content that does not just look good, but actually performs. I combine creative storytelling with editing techniques driven by data to produce content that grabs attention and turns viewers into customers.
           </p>
-          <!-- <!SKILL/BRAND CHIPS: Each <span class="chip"> is a clickable pill.
-             Add your skills, tools, or brand names here. -->
-          <!-- <div class="chips">
-            <span class="chip">Findyoutfitonlins</span><span class="chip">Ilahi Creation</span>
-            <span class="chip">Surat Khazana</span><span class="chip">Pure & Herbs Organic</span>
-            <span class="chip">Shaik Sab Perfumes</span><span class="chip">Crank</span>
-            <span class="chip">Aviora</span>
-          </div> -->
-          <!-- ABOUT BUTTONS: Change button text and href links -->
           <div class="abtns">
             <a href="#contact" class="btn-p ripple-host">Work With Me →</a>
             <a href="#work" class="btn-g">See My Work</a>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+
+      </div><!-- /about-grid -->
+    </div><!-- /wrap -->
+  </section><!-- /about -->
 
   <!-- ═══════════════════════════════════════════════════
      CONTACT SECTION
@@ -5389,27 +5898,41 @@
       <div class="con-in">
         <!-- CONTACT HEADING: Change this text -->
         <div class="stag rv" style="justify-content:center">Get In Touch</div>
-        <h2 class="stitle rv d1">Let's Create Content<br>That <em>Actually Performs</em> 🚀</h2>
-        <p class="sbody rv d2">Ready to take your brand to the next level? Let's build something scroll-stopping
-          together.</p>
+        <h2 class="stitle rv d1">Let's Create Content<br>That <em>Actually Performs</em></h2>
+        <p class="sbody rv d2">Are you ready to take your brand to the next level? Let's build something highly engaging together.</p>
         <!-- CONTACT CARDS -->
         <div class="con-cards rv d3">
           <!-- INSTAGRAM CARD: Shows a popup when clicked -->
           <div class="cc ripple-host" onclick="showInstaPopup()" style="cursor:pointer">
-            <div class="cc-ico">📸</div>
+            <div class="cc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z">
+                </path>
+                <circle cx="12" cy="13" r="3"></circle>
+              </svg></div>
             <div class="cc-l">Instagram</div>
             <div class="cc-v">Chat Now</div>
           </div>
           <!-- WHATSAPP CARD: Change 917795811341 to your WhatsApp number (country code + number, no + or spaces) -->
           <a href="https://wa.me/917795811341" class="cc ripple-host" target="_blank" rel="noopener">
-            <div class="cc-ico">💬</div>
+            <div class="cc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg></div>
             <div class="cc-l">WhatsApp</div>
             <div class="cc-v">Chat Now</div>
           </a>
           <!-- EMAIL CARD: Redirects to syedmustafa012006@gmail.com -->
           <a href="mailto:syedmustafa012006@gmail.com" class="cc ripple-host"
             onclick="window.location.href='mailto:syedmustafa012006@gmail.com'; return false;">
-            <div class="cc-ico">📧</div>
+            <div class="cc-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle;">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg></div>
             <div class="cc-l">Email</div>
             <div class="cc-v">Drop Mail</div>
           </a>
@@ -5433,7 +5956,14 @@
   <!-- Instagram "coming soon" popup -->
   <div id="instaOv" onclick="if(event.target===this)closeInstaPopup()" role="dialog" aria-modal="true">
     <div class="ig-box">
-      <span class="ig-ico">🚧</span>
+      <span class="ig-ico"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          style="display:inline-block; vertical-align:middle;">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path
+            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+          </path>
+        </svg></span>
       <h4>Sorry for the inconvenience!</h4>
       <p>We'll fix it shortly. Stay tuned!</p>
       <button class="ig-ok" onclick="closeInstaPopup()">Got it</button>
@@ -5463,7 +5993,18 @@
   <!-- FAB -->
   <button id="chatFab" onclick="toggleChat()" title="Start a Project">
     <div class="fab-pulse"></div>
-    <span class="fab-icon">🎬</span>
+    <span class="fab-icon"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        style="display:inline-block; vertical-align:middle;">
+        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+        <line x1="7" y1="2" x2="7" y2="22"></line>
+        <line x1="17" y1="2" x2="17" y2="22"></line>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <line x1="2" y1="7" x2="7" y2="7"></line>
+        <line x1="2" y1="17" x2="7" y2="17"></line>
+        <line x1="17" y1="17" x2="22" y2="17"></line>
+        <line x1="17" y1="7" x2="22" y2="7"></line>
+      </svg></span>
     <span class="fab-badge">1</span>
   </button>
 
@@ -5472,7 +6013,18 @@
     <!-- Header -->
     <div class="cb-header">
       <div class="cb-header-left">
-        <div class="cb-av">🎬</div>
+        <div class="cb-av"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            style="display:inline-block; vertical-align:middle;">
+            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+            <line x1="7" y1="2" x2="7" y2="22"></line>
+            <line x1="17" y1="2" x2="17" y2="22"></line>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <line x1="2" y1="7" x2="7" y2="7"></line>
+            <line x1="2" y1="17" x2="7" y2="17"></line>
+            <line x1="17" y1="17" x2="22" y2="17"></line>
+            <line x1="17" y1="7" x2="22" y2="7"></line>
+          </svg></div>
         <div class="cb-header-info">
           <div class="cb-header-name">Syed Mustafa · Project Brief</div>
           <div class="cb-header-sub"><span class="cb-status-dot"></span>Online · Replies fast</div>
@@ -5712,9 +6264,9 @@
       /* STEP 3 — Project Type */
       {
         id: 'type', label: 'Project Type', question: "What kind of video are you looking for?", chips: [
-          { label: 'Instagram Reel', value: 'Instagram Reel', icon: '📱' },
+          { label: 'Instagram Reel', value: 'Instagram Reel', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>' },
           { label: 'Product Video', value: 'Product Video', icon: '🎥' },
-          { label: 'Cinematic Ad', value: 'Cinematic Ad', icon: '🎬' },
+          { label: 'Cinematic Ad', value: 'Cinematic Ad', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>' },
           { label: 'YouTube Video', value: 'YouTube Video', icon: '▶' },
           { label: 'Other', value: 'Other', icon: '◇' }
         ], dataKey: 'projectType', placeholder: 'Describe the type of video…'
@@ -5722,17 +6274,17 @@
       /* STEP 4 — Editing Style */
       {
         id: 'style', label: 'Style', question: "What editing style fits your vision?", chips: [
-          { label: 'Cinematic', value: 'Cinematic', icon: '🎞' },
-          { label: 'Fast-paced', value: 'Fast-paced', icon: '⚡' },
+          { label: 'Cinematic', value: 'Cinematic', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>' },
+          { label: 'Quick Cuts', value: 'Quick Cuts', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>' },
           { label: 'Minimal & Clean', value: 'Minimal & Clean', icon: '—' },
-          { label: 'Luxury / High-end', value: 'Luxury / High-end', icon: '◆' },
-          { label: 'Trendy / Viral', value: 'Trendy / Viral', icon: '🔥' }
+          { label: 'Luxury / High End', value: 'Luxury / High End', icon: '◆' },
+          { label: 'Trendy / Viral', value: 'Trendy / Viral', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>' }
         ], dataKey: 'style', placeholder: 'Describe your preferred style…'
       },
       /* STEP 5 — Duration */
       {
         id: 'duration', label: 'Duration', question: "How long should the final video be?", chips: [
-          { label: '15 sec', value: '15 seconds', icon: '⚡' },
+          { label: '15 sec', value: '15 seconds', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>' },
           { label: '30 sec', value: '30 seconds', icon: '◑' },
           { label: '60 sec', value: '60 seconds', icon: '●' },
           { label: '2–3 min', value: '2–3 minutes', icon: '◎' },
@@ -5742,7 +6294,7 @@
       /* STEP 6 — Platform */
       {
         id: 'platform', label: 'Platform', question: "Where will this video be published?", chips: [
-          { label: 'Instagram', value: 'Instagram', icon: '📸' },
+          { label: 'Instagram', value: 'Instagram', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"></path><circle cx="12" cy="13" r="3"></circle></svg>' },
           { label: 'YouTube', value: 'YouTube', icon: '▶' },
           { label: 'Paid Ads', value: 'Paid Ads', icon: '◆' },
           { label: 'Website', value: 'Website', icon: '◇' },
@@ -5752,8 +6304,8 @@
       /* STEP 7 — Reference (optional) */
       {
         id: 'reference', label: 'Reference', question: "Any reference video or style inspiration? (optional)", chips: [
-          { label: 'I have a link', value: 'link', icon: '🔗' },
-          { label: "I'll describe it", value: 'describe', icon: '📝' },
+          { label: 'I have a link', value: 'link', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>' },
+          { label: "I'll describe it", value: 'describe', icon: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>' },
           { label: 'Skip this', value: 'no-reference', icon: '→' }
         ], dataKey: 'referenceType', placeholder: null
       },
@@ -5901,7 +6453,7 @@
     function cbAddUserMessage(text) {
       const el = document.createElement('div');
       el.className = 'cb-msg user';
-      el.innerHTML = `<div class="cb-msg-avatar cb-user-avatar">👤</div><div class="cb-msg-content"><div class="cb-bubble cb-user-bubble">${cbEsc(text)}</div><div class="cb-locked-badge">Saved</div></div>`;
+      el.innerHTML = `<div class="cb-msg-avatar cb-user-avatar"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="cb-msg-content"><div class="cb-bubble cb-user-bubble">${cbEsc(text)}</div><div class="cb-locked-badge">Saved</div></div>`;
       cbMessagesEl().appendChild(el);
       cbScrollToBottom();
     }
@@ -6027,9 +6579,9 @@
     <div class="cb-contact-card-title">Almost done &middot; Final step</div>
     <p style="font-size:13px;color:var(--cb-text2);margin-bottom:12px;line-height:1.65;font-family:var(--cb-font-body)">How should I reach you to send the quotation?</p>
     <div class="cb-contact-methods" id="cbContactMethods">
-      <button class="cb-contact-method-btn" onclick="cbSelectContactMethod(this,'whatsapp')">💬 WhatsApp</button>
-      <button class="cb-contact-method-btn" onclick="cbSelectContactMethod(this,'email')">📧 Email</button>
-      <button class="cb-contact-method-btn" onclick="cbSelectContactMethod(this,'phone')">📞 Phone</button>
+      <button class="cb-contact-method-btn" onclick="cbSelectContactMethod(this,'whatsapp')"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> WhatsApp</button>
+      <button class="cb-contact-method-btn" onclick="cbSelectContactMethod(this,'email')"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg> Email</button>
+      <button class="cb-contact-method-btn" onclick="cbSelectContactMethod(this,'phone')"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Phone</button>
     </div>
     <div class="cb-contact-input-row" id="cbContactInputRow">
       <input class="cb-contact-field" id="cbContactField" type="text" placeholder="" />
@@ -6069,7 +6621,7 @@
       if (btn) { btn.disabled = true; btn.textContent = 'Building your brief…'; }
       document.querySelectorAll('.cb-contact-method-btn').forEach(b => { b.disabled = true; b.onclick = null; });
       field.disabled = true;
-      const icon = method === 'whatsapp' ? '💬' : method === 'email' ? '📧' : '📞';
+      const icon = method === 'whatsapp' ? '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>' : method === 'email' ? '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>' : '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>';
       cbAddUserMessage(`${icon} ${val}`);
       await cbSleep(300); cbShowTyping(); await cbSleep(900); cbRemoveTyping();
       cbRenderQuotationCard();
@@ -6188,12 +6740,12 @@
         '',
         `I was looking at your portfolio and I'd like to request a custom quotation for a new video project.`,
         '',
-        `👤 *My Details:*`,
+        `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> *My Details:*`,
         `• Name: ${d.clientName || 'Not provided'}`,
         `• Brand: ${d.brandName || 'Not provided'}`,
         `• Preferred Contact: ${cbCap(d.contactMethod || '')} — ${d.contactDetails || 'Not provided'}`,
         '',
-        `🎬 *What I'm looking for:*`,
+        `<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> *What I'm looking for:*`,
         `• Video Type: ${d.projectType || 'Not specified'}`,
         `• Style: ${d.style || 'Not specified'}`,
         `• Duration: ${d.duration || 'Not specified'}`,
@@ -6216,14 +6768,14 @@
     <div class="cb-modal-sub">Your project details will be sent instantly. I'll reply with a custom quotation.</div>
     <div class="cb-modal-options">
       <button class="cb-modal-opt cb-modal-opt-wa" onclick="cbConfirmSend('whatsapp')">
-        <div class="cb-modal-opt-icon">💬</div>
+        <div class="cb-modal-opt-icon"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
         <div>
           <div class="cb-modal-opt-label">WhatsApp</div>
           <div class="cb-modal-opt-desc">Opens WhatsApp with your brief pre-filled</div>
         </div>
       </button>
       <button class="cb-modal-opt cb-modal-opt-email" onclick="cbConfirmSend('email')">
-        <div class="cb-modal-opt-icon">📧</div>
+        <div class="cb-modal-opt-icon"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></div>
         <div>
           <div class="cb-modal-opt-label">Email</div>
           <div class="cb-modal-opt-desc">Opens your mail app with brief ready to send</div>
@@ -6260,18 +6812,18 @@
     function cbShowSuccessMessage(channel) {
       const name = cbState.data.clientName ? `, ${cbState.data.clientName.split(' ')[0]}` : '';
       const channelLabel = channel === 'whatsapp' ? 'WhatsApp' : 'Email';
-      const channelIcon = channel === 'whatsapp' ? '💬' : '📧';
+      const channelIcon = channel === 'whatsapp' ? '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>' : '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>';
       const successCard = `<div class="cb-success-card">
-    <div class="cb-success-icon">✅</div>
+    <div class="cb-success-icon"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 6L9 17l-5-5"></path></svg></div>
     <div class="cb-success-title">Brief sent!</div>
     <div class="cb-success-sub">Thanks${name}! Your project brief is on its way to Syed Mustafa. Expect a custom quotation within <strong>24 hours</strong>.</div>
     <div class="cb-success-reach-label">Need to reach out directly?</div>
     <div class="cb-success-actions">
-      <a class="cb-success-action-btn cb-success-wa-btn" href="https://wa.me/${CB_WHATSAPP}" target="_blank" rel="noopener noreferrer"><span>💬</span><span>WhatsApp</span></a>
-      <a class="cb-success-action-btn cb-success-email-btn" href="mailto:${CB_EMAIL}" target="_blank" rel="noopener noreferrer"><span>📧</span><span>Email</span></a>
+      <a class="cb-success-action-btn cb-success-wa-btn" href="https://wa.me/${CB_WHATSAPP}" target="_blank" rel="noopener noreferrer"><span><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span><span>WhatsApp</span></a>
+      <a class="cb-success-action-btn cb-success-email-btn" href="mailto:${CB_EMAIL}" target="_blank" rel="noopener noreferrer"><span><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span><span>Email</span></a>
     </div>
   </div>`;
-      cbAddAIMessage(`Got it${name}! 🎬 Brief sent via <strong>${channelLabel}</strong>. I'll put together a custom quote and get back to you soon.`, successCard);
+      cbAddAIMessage(`Got it${name}! <svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg> Brief sent via <strong>${channelLabel}</strong>. I'll put together a custom quote and get back to you soon.`, successCard);
       cbScrollToBottom();
     }
 
@@ -6291,7 +6843,7 @@
     async function cbInit() {
       cbRenderSidebar(); cbSetInputEnabled(false); cbShowTyping();
       await cbSleep(800); cbRemoveTyping();
-      cbAddAIMessage(`Hey there! 👋 I'm <strong>Syed Mustafa's</strong> project assistant.<br><br>I'll help you put together a quick project brief so I can send you a <strong>custom quotation</strong>. This takes less than 2 minutes!`, null);
+      cbAddAIMessage(`Hey there! <svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg> I'm <strong>Syed Mustafa's</strong> project assistant.<br><br>I'll help you put together a quick project brief so I can send you a <strong>custom quotation</strong>. This takes less than 2 minutes!`, null);
       await cbSleep(400); cbShowTyping(); await cbSleep(600); cbRemoveTyping();
       const firstStep = CB_FLOW[0];
       cbSetInputEnabled(true);
@@ -6300,7 +6852,387 @@
     }
   </script>
 
+  <!-- ═══ ABOUT SECTION — SPRING CHARACTER PHYSICS ═══ -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ── refs ── */
+      var card = document.getElementById('abCharCard');
+      var charWrap = document.getElementById('abCharWrap');
+      var charInner = document.getElementById('abCharInner');
+      var shadow = document.getElementById('abShadow');
+      var glow = document.getElementById('abCharGlow');
+      var lineSvg = document.getElementById('ab-line-svg');
+      var linePath = document.getElementById('ab-line-path');
+      var lineGlow = document.getElementById('ab-line-glow');
+      var dotChar = document.getElementById('ab-dot-char');
+      var dotText = document.getElementById('ab-dot-text');
+      var headline = document.getElementById('abHeadline');
+
+      if (!card || !charWrap || !headline) return;
+
+      var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+      /* ── spring constants ── */
+      var K = isMobile ? 0.10 : 0.08;  // stiffness
+      var DAMP = isMobile ? 0.78 : 0.74;  // damping (lower = more bounce)
+      var RESIST = 0.72;                     // drag feel (< 1 = rubbery)
+      var MAX_D = isMobile ? 60 : 200;    // max drag offset
+      var TXT_K = 0.055;                    // text spring strength
+      var TXT_D = 0.65;                     // text damping
+
+      /* ── physics state ── */
+      var px = 0, py = 0;           // current position offsets
+      var vx = 0, vy = 0;           // velocity
+      var tx = 0, ty = 0;           // target (follows pointer with resistance)
+      var tvx = 0, tvy = 0;         // text velocity
+      var tox = 0, toy = 0;         // text offset
+
+      var dragging = false;
+      var startMX = 0, startMY = 0; // pointer start minus pos
+      var rafId = null;
+      var floatT = 0;        // idle float time
+      var lastTS = 0;
+
+      function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+      /* ── get character centre in SVG/section coords ── */
+      function charPt() {
+        if (!lineSvg) return { x: 0, y: 0 };
+        var sr = lineSvg.getBoundingClientRect();
+        var cr = charWrap.getBoundingClientRect();
+        return {
+          x: cr.left + cr.width * 0.61 - sr.left,   // perfectly aligned with thumb and index finger
+          y: cr.top + cr.height * 0.38 - sr.top     // perfectly aligned vertically
+        };
+      }
+
+      /* ── get text target anchor ── */
+      function textPt() {
+        if (!lineSvg || !headline) return { x: 0, y: 0 };
+        var sr = lineSvg.getBoundingClientRect();
+        var hr = headline.getBoundingClientRect();
+        return {
+          x: hr.left - sr.left,
+          y: hr.top + hr.height * 0.55 - sr.top
+        };
+      }
+
+      /* ─────────────────────────────────────────────────────────────
+         COIL SPRING GENERATOR
+         Generates a smooth sine-wave coil path between two points.
+         Points are sampled along the line, displaced perpendicularly
+         using a sine wave whose frequency and amplitude grow with
+         the stretch distance. Catmull-Rom → cubic Bézier spline.
+      ───────────────────────────────────────────────────────────── */
+      var springHalo = document.getElementById('ab-spring-halo');
+      var springCore = document.getElementById('ab-spring-core');
+      var springBright = document.getElementById('ab-spring-bright');
+
+      function buildCoilPath(ax, ay, bx, by, stretch) {
+        var dx = bx - ax, dy = by - ay;
+        var len = Math.sqrt(dx * dx + dy * dy);
+        if (len < 1) return 'M ' + ax + ' ' + ay;
+
+        /* hand direction vector (pointing right and slightly down) to match grip angle */
+        var hx = 1, hy = 0.15;
+        var hLen = Math.sqrt(hx * hx + hy * hy);
+        hx /= hLen; hy /= hLen;
+
+        /* Spine control points for natural continuity */
+        var tension = len * 0.35; // How strongly it follows the hand's direction initially
+        var cx1 = ax + hx * tension;
+        var cy1 = ay + hy * tension;
+        var cx2 = bx - dx * 0.2;
+        var cy2 = by - dy * 0.2;
+
+        /* evaluate Bezier at t */
+        function getSpinePt(t) {
+          var mt = 1 - t;
+          var x = mt * mt * mt * ax + 3 * mt * mt * t * cx1 + 3 * mt * t * t * cx2 + t * t * t * bx;
+          var y = mt * mt * mt * ay + 3 * mt * mt * t * cy1 + 3 * mt * t * t * cy2 + t * t * t * by;
+          return { x: x, y: y };
+        }
+
+        /* evaluate Bezier derivative at t to get tangent */
+        function getSpineTangent(t) {
+          var mt = 1 - t;
+          var vx = 3 * mt * mt * (cx1 - ax) + 6 * mt * t * (cx2 - cx1) + 3 * t * t * (bx - cx2);
+          var vy = 3 * mt * mt * (cy1 - ay) + 6 * mt * t * (cy2 - cy1) + 3 * t * t * (by - cy2);
+          var vl = Math.sqrt(vx * vx + vy * vy);
+          return { ux: vx / vl, uy: vy / vl };
+        }
+
+        var t_stretch = clamp(stretch / 200, 0, 1);
+        var waves = 8 + t_stretch * 4;
+        var amp = 18 - t_stretch * 6;
+        var STEPS = Math.max(120, Math.round(waves * 20));
+        var pts = [];
+
+        for (var i = 0; i <= STEPS; i++) {
+          var s = i / STEPS;
+          
+          /* Tension effect: tighter curve at the connection point */
+          var envelope = Math.pow(Math.sin(s * Math.PI), 0.65);
+          
+          /* Slight finger pressure effect: small pinch at the very start */
+          if (s < 0.04) envelope *= (s / 0.04);
+
+          var angle = s * waves * Math.PI * 2;
+          var coilX = Math.cos(angle) * amp * envelope;
+          var coilY = Math.sin(angle) * (amp * 0.4) * envelope;
+          var sag = Math.sin(s * Math.PI) * (12 + t_stretch * 6);
+
+          /* Get spine point and normal vector for coil projection */
+          var spinePt = getSpinePt(s);
+          var spineTan = getSpineTangent(s);
+          var nx = -spineTan.uy;
+          var ny = spineTan.ux;
+
+          var px_ = spinePt.x + spineTan.ux * coilY + nx * coilX;
+          var py_ = spinePt.y + spineTan.uy * coilY + ny * coilX + sag;
+          pts.push([px_, py_]);
+        }
+
+        /* Catmull-Rom to cubic Bézier conversion */
+        var d = 'M ' + pts[0][0].toFixed(2) + ' ' + pts[0][1].toFixed(2);
+        for (var j = 0; j < pts.length - 1; j++) {
+          var p0 = pts[Math.max(j - 1, 0)];
+          var p1 = pts[j];
+          var p2 = pts[j + 1];
+          var p3 = pts[Math.min(j + 2, pts.length - 1)];
+          var cp1x = p1[0] + (p2[0] - p0[0]) / 6;
+          var cp1y = p1[1] + (p2[1] - p0[1]) / 6;
+          var cp2x = p2[0] - (p3[0] - p1[0]) / 6;
+          var cp2y = p2[1] - (p3[1] - p1[1]) / 6;
+          d += ' C ' + cp1x.toFixed(2) + ' ' + cp1y.toFixed(2) +
+            ' ' + cp2x.toFixed(2) + ' ' + cp2y.toFixed(2) +
+            ' ' + p2[0].toFixed(2) + ' ' + p2[1].toFixed(2);
+        }
+        return d;
+      }
+
+      /* ── draw the coil spring between character hand and headline ── */
+      function drawLine() {
+        if (!lineSvg || !linePath) return;
+        var cp = charPt();
+        var tp = textPt();
+        var stretch = Math.sqrt(px * px + py * py);
+
+        /* Build the coil path */
+        var d = buildCoilPath(cp.x, cp.y, tp.x, tp.y, stretch);
+
+        /* Apply to all four layers */
+        linePath.setAttribute('d', d);
+        if (springHalo) springHalo.setAttribute('d', d);
+        if (springCore) springCore.setAttribute('d', d);
+        if (springBright) springBright.setAttribute('d', d);
+
+        /* Update gradient to follow exact path direction */
+        var grad = document.getElementById('abLineGrad');
+        if (grad) {
+          grad.setAttribute('x1', cp.x); grad.setAttribute('y1', cp.y);
+          grad.setAttribute('x2', tp.x); grad.setAttribute('y2', tp.y);
+        }
+
+        /* ── visibility: fade in quickly on first movement ── */
+        var alpha = 1; // Spring is always visible
+        linePath.style.opacity = alpha;
+        if (springHalo) springHalo.style.opacity = alpha * 0.7;
+        if (springCore) springCore.style.opacity = alpha * 0.8;
+        if (springBright) springBright.style.opacity = alpha * 0.6;
+
+        /* endpoint dots */
+        var dotCharCore = document.getElementById('ab-dot-char-core');
+        dotChar.setAttribute('cx', cp.x);
+        dotChar.setAttribute('cy', cp.y);
+        if (dotCharCore) {
+          dotCharCore.setAttribute('cx', cp.x);
+          dotCharCore.setAttribute('cy', cp.y);
+          dotCharCore.style.opacity = alpha * 0.9;
+        }
+        dotText.setAttribute('cx', tp.x);
+        dotText.setAttribute('cy', tp.y);
+        dotChar.style.opacity = alpha;
+        dotText.style.opacity = alpha * 0.75;
+
+        /* ── stroke width scales with tension — thicker when pulled hard ── */
+        var t = clamp(stretch / 200, 0, 1);
+        var sw = 3.5 - t * 1.0;                          // 3.5 → 2.5px
+        linePath.setAttribute('stroke-width', sw);
+        if (springBright) springBright.setAttribute('stroke-width', Math.max(1.2, sw * 0.4));
+      }
+
+      /* ── apply all transforms ── */
+      function applyTransforms() {
+        var dist = Math.sqrt(px * px + py * py);
+        var rot = clamp(px * 0.055, -20, 20);
+        var scX = 1 + clamp(Math.abs(px) * 0.0008, 0, 0.06);
+        var scY = 1 - clamp(dist * 0.0015, 0, 0.10);
+
+        /* character */
+        charWrap.style.transform = 'translateX(-50%) translate3d(' + px + 'px,' + py + 'px,0)';
+        charInner.style.transform = 'rotate(' + rot + 'deg) scaleX(' + scX + ') scaleY(' + scY + ')';
+
+        /* glow tracks char */
+        glow.style.transform = 'translateX(calc(-50% + ' + px * 0.4 + 'px)) translateY(' + py * 0.25 + 'px)';
+        glow.style.opacity = String(0.7 + clamp(dist * 0.002, 0, 0.3));
+
+        /* shadow stretches */
+        var sX = 0.55 + clamp(Math.abs(px) * 0.006, 0, 0.45);
+        var sY = 0.4 - clamp(dist * 0.003, 0, 0.22);
+        shadow.style.transform = 'translateX(-50%) scaleX(' + sX + ') scaleY(' + sY + ')';
+        shadow.style.opacity = String(0.8 - clamp(dist * 0.004, 0, 0.55));
+
+        /* drop shadow intensity */
+        charInner.style.filter = dragging
+          ? 'drop-shadow(0 0 ' + (10 + dist * 0.07) + 'px rgba(13,51,179,0.65))'
+          : '';
+
+        /* headline text elastic deform */
+        var skX = clamp(tox * 0.025, -4, 4);
+        var skY = clamp(toy * 0.018, -3, 3);
+        var htSX = 1 + clamp(Math.abs(tox) * 0.0015, 0, 0.03);
+        var htSY = 1 - clamp(Math.abs(toy) * 0.0012, 0, 0.03);
+        headline.style.transform = 'translate(' + tox * 0.12 + 'px,' + toy * 0.12 + 'px) skew(' + skX + 'deg,' + skY + 'deg) scale(' + htSX + ',' + htSY + ')';
+        headline.style.transformOrigin = 'left center';
+
+        drawLine();
+      }
+
+      /* ── spring physics step ── */
+      function step(ts) {
+        var dt = Math.min((ts - lastTS) / 16.67, 2.5);
+        lastTS = ts;
+
+        /* idle antigravity float when not dragging */
+        if (!dragging) {
+          floatT += 0.018 * dt;
+          var fY = Math.sin(floatT) * 8;
+          var fX = Math.sin(floatT * 0.6) * 3;
+          /* blend idle float into target (soft) */
+          tx += (fX - tx) * 0.04;
+          ty += (fY - ty) * 0.04;
+        }
+
+        /* spring update */
+        var ax = (tx - px) * K;
+        var ay = (ty - py) * K;
+        vx = (vx + ax) * DAMP;
+        vy = (vy + ay) * DAMP;
+        px += vx * dt;
+        py += vy * dt;
+
+        /* text spring */
+        var tbx = (px * 0.38 - tox) * TXT_K;
+        var tby = (py * 0.38 - toy) * TXT_K;
+        tvx = (tvx + tbx) * TXT_D;
+        tvy = (tvy + tby) * TXT_D;
+        tox += tvx * dt;
+        toy += tvy * dt;
+
+        applyTransforms();
+
+        var settled = !dragging &&
+          Math.abs(vx) < 0.05 && Math.abs(vy) < 0.05 &&
+          Math.abs(tvx) < 0.04 && Math.abs(tvy) < 0.04;
+
+        if (!settled) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          /* keep idle ticker going */
+          rafId = requestAnimationFrame(step);
+        }
+      }
+
+      function startLoop() {
+        if (!rafId) { lastTS = performance.now(); rafId = requestAnimationFrame(step); }
+      }
+
+      /* ── pointer/touch helpers ── */
+      function getPointerXY(e) {
+        if (e.touches) return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        return { x: e.clientX, y: e.clientY };
+      }
+
+      function onDown(e) {
+        if (e.button && e.button !== 0) return;
+        e.preventDefault();
+        dragging = true;
+        var p = getPointerXY(e);
+        startMX = p.x - px;
+        startMY = p.y - py;
+        card.classList.add('dragging');
+        charInner.classList.add('dragging');
+        startLoop();
+      }
+
+      function onMove(e) {
+        if (!dragging) return;
+        var p = getPointerXY(e);
+        var rawX = p.x - startMX;
+        var rawY = p.y - startMY;
+        var dist = Math.sqrt(rawX * rawX + rawY * rawY);
+        var factor = dist > MAX_D
+          ? MAX_D / dist * RESIST
+          : RESIST + (1 - RESIST) * (1 - dist / MAX_D);
+        tx = rawX * factor;
+        ty = rawY * factor;
+      }
+
+      function onUp() {
+        if (!dragging) return;
+        dragging = false;
+        tx = 0; ty = 0;
+        card.classList.remove('dragging');
+        charInner.classList.remove('dragging');
+      }
+
+      /* ── mobile tap bounce ── */
+      function tapBounce() {
+        if (dragging) return;
+        tx = 0; ty = -55;
+        vx = 2; vy = -6;
+        startLoop();
+        setTimeout(function () { ty = 0; }, 80);
+      }
+
+      /* ── event listeners ── */
+      charWrap.addEventListener('mousedown', onDown, { passive: false });
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('mouseup', onUp);
+      charWrap.addEventListener('touchstart', onDown, { passive: false });
+      window.addEventListener('touchmove', onMove, { passive: true });
+      window.addEventListener('touchend', onUp);
+
+      if (isMobile) {
+        charWrap.addEventListener('click', tapBounce);
+      }
+
+      /* ── init after layout ── */
+      window.addEventListener('load', function () {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            lastTS = performance.now();
+            rafId = requestAnimationFrame(step);
+            drawLine();
+          });
+        });
+      });
+
+      window.addEventListener('resize', function () {
+        isMobile = window.matchMedia('(max-width: 768px)').matches;
+        K = isMobile ? 0.10 : 0.08;
+        MAX_D = isMobile ? 60 : 200;
+        drawLine();
+      });
+
+    }());
+  </script>
+
   <!-- React, ReactDOM, Framer Motion, Babel CDNs for Arc Carousel -->
+
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
@@ -6341,15 +7273,15 @@
     const { useState, useEffect, useRef } = React;
 
     const videos = [
-      { id: 1, src: "https://drive.google.com/uc?export=download&id=1QP8WOQuZP7Ae0AiKSWx0s-mqOycIYBox", type: "Clothing · Reel", title: "Fashion Reel" },
-      { id: 2, src: "card2.mp4", type: "Travel · Vlog", title: "Travel Edit" },
-      { id: 3, src: "card3.mp4", type: "Education · YouTube", title: "Edu Video" },
-      { id: 4, src: "card4.mp4", type: "Energy Drink · Ad", title: "CRANK Ad" },
-      { id: 5, src: "card5.mp4", type: "Bootcamp · Creative", title: "Atria Edit" },
-      { id: 6, src: "https://drive.google.com/uc?export=download&id=1QP8WOQuZP7Ae0AiKSWx0s-mqOycIYBox", type: "Clothing · Reel", title: "Fashion V2" },
-      { id: 7, src: "card2.mp4", type: "Travel · Cinema", title: "Travel V2" },
-      { id: 8, src: "card3.mp4", type: "Podcast · Edit", title: "Podcast Edit" },
-      { id: 9, src: "card4.mp4", type: "Sports · Promo", title: "Sports Hype" },
+      { id: 1, src: "./card1.mp4", type: "Clothing · Reel", title: "Fashion Reel" },
+      { id: 2, src: "./card2.mp4", type: "Travel · Vlog", title: "Travel Edit" },
+      { id: 3, src: "./card6.mp4", type: "Education · YouTube", title: "Edu Video" },
+      { id: 4, src: "./card3.mp4", type: "Energy Drink · Ad", title: "CRANK Ad" },
+      { id: 5, src: "./card4.mp4", type: "Bootcamp · Creative", title: "Atria Edit" },
+      { id: 6, src: "./card5.mp4", type: "Clothing · Reel", title: "Fashion V2" },
+      { id: 7, src: "./card6.mp4", type: "Travel · Cinema", title: "Travel V2" },
+      { id: 8, src: "./card7.mp4", type: "Podcast · Edit", title: "Podcast Edit" },
+      { id: 9, src: "./card4.mp4", type: "Sports · Promo", title: "Sports Hype" },
     ];
 
     /* ─── MobileCard ─── */
@@ -6607,5 +7539,45 @@
       root.render(<ArcCarousel videos={videos} />);
     }
   </script>
+
+  <!-- ═══ WHY ME CARDS — 3D PARALLAX HOVER ═══ -->
+  <script>
+    (function() {
+      const cards = document.querySelectorAll('.wf');
+      
+      cards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          if (window.innerWidth <= 1024) return;
+          
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          // Max rotation of 4deg
+          const rotateX = ((y - centerY) / centerY) * -4;
+          const rotateY = ((x - centerX) / centerX) * 4;
+          
+          card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px) scale(1.03)`;
+          
+          // Interactive dynamic lighting
+          card.style.background = `
+            radial-gradient(circle at ${x}px ${y}px, rgba(13, 51, 179, 0.15) 0%, transparent 60%),
+            linear-gradient(145deg, #0d1222, #070a14)
+          `;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          if (window.innerWidth <= 1024) return;
+          card.style.transform = '';
+          card.style.background = '';
+        });
+      });
+    })();
+  </script>
+
+</body>
 
 </html>
