@@ -3979,12 +3979,6 @@
       gap: 3px;
     }
 
-    .cb-locked-badge::before {
-      content: '<svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 6L9 17l-5-5"></path></svg>';
-      color: var(--cb-success);
-      font-size: 9px;
-    }
-
     /* Quick chips */
     .cb-quick-chips {
       display: flex;
@@ -6453,7 +6447,7 @@
     function cbAddUserMessage(text) {
       const el = document.createElement('div');
       el.className = 'cb-msg user';
-      el.innerHTML = `<div class="cb-msg-avatar cb-user-avatar"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="cb-msg-content"><div class="cb-bubble cb-user-bubble">${cbEsc(text)}</div><div class="cb-locked-badge">Saved</div></div>`;
+      el.innerHTML = `<div class="cb-msg-avatar cb-user-avatar"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div><div class="cb-msg-content"><div class="cb-bubble cb-user-bubble">${cbEsc(text)}</div><div class="cb-locked-badge"><svg width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none" stroke="var(--cb-success)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block; vertical-align:middle; margin-right: 2px;"><path d="M20 6L9 17l-5-5"></path></svg>Saved</div></div>`;
       cbMessagesEl().appendChild(el);
       cbScrollToBottom();
     }
